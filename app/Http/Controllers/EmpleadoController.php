@@ -34,7 +34,7 @@ class EmpleadoController extends Controller
 
         Empleado::insert($datosEmpleado); //insertar en la bd
 
-        return response()->json($datosEmpleado);
+        return redirect('empleado')->with('mensaje', 'Empleado agregado con éxito');
     }
 
   
@@ -75,6 +75,6 @@ class EmpleadoController extends Controller
         if (Storage::delete('public/'.$empleado->foto) ) { //borar foto del storage
             Empleado::destroy($id); //borrar registro de la bd
         }
-        return redirect('empleado');
+        return redirect('empleado')->with('mensaje', 'Empleado borrado');
     }
 }
