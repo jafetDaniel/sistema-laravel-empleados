@@ -10,11 +10,10 @@ class EmpleadoController extends Controller
   
     public function index()
     {
-        $datos['empleados']=Empleado::paginate(5);
+        $datos['empleados']=Empleado::paginate(1);
 
         return view('empleado.index', $datos);
     }
-
     
     public function create()
     {
@@ -25,6 +24,17 @@ class EmpleadoController extends Controller
 
     public function store(Request $request)
     {
+        $campos= ['nombre'=>'required|string|max:100',
+                  'apellidoPaterno'=>'required|string|max:100',
+                  'apellidoMaterno'=>'required|string|max:100',
+                  'correo'=>'required|email',
+                  'foto'=>'required|max:100|mimes:jpeg,png,jpg'
+        ];
+        $mensaje=['required'=>'el :attribute es requerido',
+                   'foto.required'=>'la foto es requerida'];
+
+        $this->validate($request, $campos, $mensaje);
+
         //$datosEmpleado = request()->all();
         $datosEmpleado = request()->except('_token'); //enviar campos menos el token
 
@@ -43,17 +53,29 @@ class EmpleadoController extends Controller
         //
     }
 
-
     public function edit($id)
     {
         $empleado=Empleado::findOrFail($id); //obtener datos de un registro por medio de su id
 
         return view('empleado.edit', compact('empleado'));
     }
-
-  
+ 
     public function update(Request $request, $id)
     {
+        $campos= ['nombre'=>'required|string|max:100',
+                  'apellidoPaterno'=>'required|string|max:100',
+                  'apellidoMaterno'=>'required|string|max:100',
+                  'correo'=>'required|email'];
+
+        $mensaje=['required'=>'el :attribute es requerido'];
+
+        if ($request->hasFile('foto')) { //si se adjunto una foto nueva
+            $campos=['foto'=>'required|max:100|mimes:jpeg,png,jpg'];
+            $mensaje=['foto.required'=>'la foto es requerida'];
+        }
+        $this->validate($request, $campos, $mensaje);
+
+        
         $datosEmpleado = request()->except('_token', '_method');
 
         if ($request->hasFile('foto')) { //si se adjunto una foto nueva
@@ -64,10 +86,11 @@ class EmpleadoController extends Controller
 
         Empleado::where('id','=', $id)->update($datosEmpleado);
         $empleado=Empleado::findOrFail($id); //obtener datos de un registro por medio de su id
-        return view('empleado.edit', compact('empleado'));
+        
+        //return view('empleado.edit', compact('empleado'));
+        //return redirect('empleado/'.$id.'/edit')->with('mensaje', 'Empleado modificado');
+        return redirect('empleado')->with('mensaje', 'Empleado modificado');
     }
-
-
     
     public function destroy($id)
     {
