@@ -45,7 +45,6 @@
                 <form action="{{url('/empleado/'.$empleado->id)}}" method="post" class="d-inline">
                     @csrf
                     {{method_field('DELETE')}}
-
                     <input type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar" class="btn btn-danger">
                 </form>
             </td>
