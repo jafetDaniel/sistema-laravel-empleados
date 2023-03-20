@@ -1,4 +1,4 @@
-Sistema realizado en laravel donde su funcion es generar un CRUD para la gestión de empleados, conteniendo caracteristicas como lectura, modificación, eliminación y creacion de empleados asi como tambien un login y autenticación de usuarios hecho con Bootstrap. Todo lo anterior con una base de datos creada en MySQL.
+Sistema realizado con laravel en donde su funcion es la de un CRUD para la gestión de empleados, conteniendo caracteristicas como lectura, modificación, eliminación y creacion de empleados asi como tambien un login y autenticación de usuarios hecho con Bootstrap. Todo lo anterior con una base de datos creada en MySQL.
 
 Imagenes ilustrativas del sistema:
 <img src="img_ilustrativa1.png">
