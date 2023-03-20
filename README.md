@@ -1,4 +1,9 @@
-Sistema realizado en laravel donde su funcion es un CRUD para la gestión de empleados, conteniendo caracteristicas como lectura, modificación, eliminación y creacion de empleados asi como tambien cuenta con login y autenticación de usuarios hecho con Bootstrap.
+Sistema realizado en laravel donde su funcion es generar un CRUD para la gestión de empleados, conteniendo caracteristicas como lectura, modificación, eliminación y creacion de empleados asi como tambien cuenta con login y autenticación de usuarios hecho con Bootstrap.
+
+Imagenes ilustrativas del sistema:
+<img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status">
+<img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status">
+<img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status">
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
